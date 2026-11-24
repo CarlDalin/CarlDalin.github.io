@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carl Dalin · CV</title>
+<meta name="description" content="CV of Carl Dalin, real-time systems engineer.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Settings: every link and address on the page comes from here.
+  const SITE = {
+    email: { user: "contact", domain: "carldalin.se" },
+    links: {
+      github:   "https://github.com/CarlDalin",
+      linkedin: "https://linkedin.com/in/carl-dalin-2b3584113",
+      youtube:  "https://www.youtube.com/@gomFPV",
+      itch:     "https://fluffyfluffy-and-bouncy.itch.io/life-of-a-peasant",
+      cenvigo:  "https://www.cenvigo.com/"
+    }
+  };
+</script>
+</head>
+<body class="cv">
+
+
+<header class="top">
+  <a class="page-button" href="index.html">Portfolio</a>
+  <h1>Carl Dalin</h1>
+  <p class="role">Real-time systems engineer · C#/.NET · Sweden, remote</p>
+  <ul class="contact">
+    <li><a data-email>Email</a><noscript>contact [at] carldalin [dot] se</noscript></li>
+    <li><a data-link="github" data-show-url>GitHub</a></li>
+    <li><a data-link="linkedin" data-show-url>LinkedIn</a></li>
+    <li><a data-link="youtube" data-show-url>YouTube</a></li>
+  </ul>
+</header>
+
+<main>
+
+  <p class="intro">
+    Programming professionally since 2017: games and multiplayer at
+    Multiverse, then over three years fully remote on a real-time sensor
+    product for elderly care, most of it as tech lead, and since 2021 my own
+    voxel engine. I design for performance from the start and look into
+    anything that behaves oddly, across the stack: binary Bluetooth
+    protocols, native C, .NET, the web.
+  </p>
+
+  <section>
+    <h2>Experience</h2>
+
+    <article class="job">
+      <h3>Independent development <span>2024 – now, remote</span></h3>
+
+      <div class="sub-job">
+        <h4>Voxel engine · sole developer <span>2021 – now, side project until 2024</span></h4>
+        <p class="what">An endless, editable block world in Unity 6: 20 km view
+          distance, above 60 FPS on a mid-range GPU (RTX 2080).
+          Videos: <a data-link="youtube" data-show-url>YouTube</a>.</p>
+        <ul>
+          <li>Designed and hand-wrote the core in 2021–22: chunk streaming,
+            meshing, and voxel collision seamlessly integrated with Unity physics.</li>
+          <li>Rebuilt it for scale in 2026 with Burst jobs, octree level of detail
+            and HDRP, directing AI-written implementation and reviewing all of it.</li>
+          <li>Profiled frame pacing, job scheduling and memory; found and fixed
+            a frame-rate cliff in the octree streaming.</li>
+          <li>Designed a world generator built on plate tectonics, rock types and
+            rivers.</li>
+        </ul>
+      </div>
+
+      <div class="sub-job">
+        <h4>Life of a Peasant · lead programmer <span>2022 – 2026, part-time</span></h4>
+        <p class="what">A narrative card game in Unity/C#, in public beta since
+          January 2026: <a data-link="itch">plays in the browser</a>.</p>
+        <ul>
+          <li>Wrote about 80% of the commits; built the core part-time alongside
+            Cenvigo.</li>
+          <li>Replaced Unity's depth-limited serialisation with a JSON event
+            format that content tools, AI included, could write.</li>
+          <li>Built asynchronously loaded content packs, ready for expansions.</li>
+          <li>Designed and built the UI for every screen shape from phone to
+            desktop.</li>
+        </ul>
+      </div>
+
+      <div class="sub-job">
+        <h4>Grid-based auto-battler · programmer <span>2024 – 2025</span></h4>
+        <p class="what">Another designer's strategy game in Unity/C#, unreleased.</p>
+        <ul>
+          <li>Wrote about 93% of the commits, turning the designer's ideas into a
+            working game.</li>
+          <li>Kept grid pathfinding in step with the physics for a few hundred
+            units a side.</li>
+          <li>Built the campaign map, save/load and editor tooling.</li>
+        </ul>
+      </div>
+
+      <div class="sub-job">
+        <h4>Desktop data tool · co-developer <span>2026</span></h4>
+        <p class="what">A .NET 10 / WPF app, built with a collaborator: read-only,
+          real-time statistics from a live online game's network traffic.</p>
+        <ul>
+          <li>Refactored the architecture and fixed concurrency issues, backed by
+            a compile-time analyzer.</li>
+          <li>Made the test suite reliable.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <h3>Cenvigo · Senior full-stack developer <span>2020 – 2024, remote</span></h3>
+      <p class="what">Camera-free monitoring for care homes, built on 120 Hz bed sensors.</p>
+      <ul>
+        <li>Tech lead: reported to the CEO, mentored a junior
+          developer, and was responsible for the entire handover to the team
+          that took over development.</li>
+        <li>Worked the sensors' binary Bluetooth (BLE) protocol against the
+          manufacturer's specification, down to bytes and checksums; took part
+          in meetings and email with the manufacturer.</li>
+        <li>Built the real-time presence and movement detection on the noisy
+          signal that drove the caregivers' alerts.</li>
+        <li>Designed storage to serve 120 Hz data from many beds in real time,
+          using indexes, integer keys and cold storage.</li>
+        <li>Stabilised an inherited React app, turned a half-finished rebuild
+          into one coherent server-side Blazor app, consolidated data access on
+          Entity Framework Core, and moved hosting from Azure to Hetzner and
+          Docker.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <h3>Multiverse · Programmer <span>2016 – 2019, Copenhagen</span></h3>
+      <p class="what">A one-year internship, then employment, on KoGaMa: a
+        Roblox-like game-creation platform with 18 million registered players.</p>
+      <ul>
+        <li>Gameplay programming in Unity/C#, including a mode called “Oculus” that turned players into a 30 m giant with an orb for a head,
+          firing 8 m wide lasers.</li>
+        <li>Built the iOS host app (Objective-C) around embedded Unity, with
+          shader fixes and UI for the iPhone notch.</li>
+        <li>Designed an anti-cheat from scratch: a native C plugin that hashed
+          the game files for the server to verify.</li>
+        <li>Tuned frame rate and bandwidth for PC, WebGL and Android, and
+          maintained the build, deployment and streaming pipelines.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <article class="job">
+      <h3>The Game Assembly · Game programmer <span>2014 – 2017</span></h3>
+      <p class="what">School ranked #5 worldwide in game design and development (The Rookies, 2017).</p>
+      <ul>
+        <li>Higher Vocational Diploma in Game Programming, including a one-year
+          internship.</li>
+        <li>A custom C++ engine and seven game projects.</li>
+        <li>Worked in cross-disciplinary teams of programmers, designers and
+          artists.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="facts">
+      <dt>Languages</dt> <dd>C# (main), C++, TypeScript, SQL</dd>
+      <dt>Also used</dt> <dd>JavaScript, C, Java/Kotlin, Objective-C</dd>
+      <dt>.NET, web</dt> <dd>.NET / ASP.NET Core, Entity Framework Core, Blazor, WPF, React, HTML/CSS, SVG, Service Workers</dd>
+      <dt>Games</dt>     <dd>Unity, Burst jobs, HDRP, multiplayer (Photon), custom C++ engine</dd>
+      <dt>Data, hosting</dt> <dd>PostgreSQL, SQL Server, Docker, Linux, Azure, Hetzner</dd>
+      <dt>Hardware</dt>  <dd>Bluetooth (BLE) sensors, Web Bluetooth, Android</dd>
+      <dt>Tools</dt>     <dd>Git, profiling, AI-assisted development (Claude Code)</dd>
+      <dt>Other</dt>     <dd>Swedish (native), English (fluent). Driving licence (B). Interests: FPV drones, karate.</dd>
+    </dl>
+  </section>
+
+</main>
+
+<script>
+  (function () {
+    document.querySelectorAll("[data-link]").forEach(function (a) {
+      var url = SITE.links[a.dataset.link];
+      if (!url) return;
+      a.href = url;
+      a.rel = "noopener";
+      // Show the address itself, so it still reads on paper.
+      if (a.hasAttribute("data-show-url")) {
+        a.textContent = url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+      }
+    });
+    var address = SITE.email.user + "@" + SITE.email.domain;
+    document.querySelectorAll("[data-email]").forEach(function (a) {
+      a.href = "mailto:" + address;
+      a.textContent = address;
+    });
+  })();
+</script>
+</body>
+</html>

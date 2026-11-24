@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carl Dalin · Real-time systems engineer</title>
+<meta name="description" content="Carl Dalin, real-time systems engineer. A voxel engine of his own, real-time sensor systems and full-stack .NET.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Settings: every link, address and video on the page comes from here.
+  const SITE = {
+    email: { user: "contact", domain: "carldalin.se" },
+    links: {
+      github:   "https://github.com/CarlDalin",
+      linkedin: "https://linkedin.com/in/carl-dalin-2b3584113",
+      youtube:  "https://www.youtube.com/@gomFPV",
+      itch:     "https://fluffyfluffy-and-bouncy.itch.io/life-of-a-peasant",
+      cenvigo:  "https://www.cenvigo.com/"
+    },
+    showreel: { id: "OETD6IMr9Vc", title: "Tower of Gom" }
+  };
+</script>
+</head>
+<body>
+
+<header class="top">
+  <a class="page-button" href="cv.html">CV</a>
+  <h1>Carl Dalin</h1>
+  <p class="role">Real-time systems engineer</p>
+  <ul class="contact">
+    <li><a data-email>Email</a><noscript>contact [at] carldalin [dot] se</noscript></li>
+    <li><a data-link="github">GitHub</a></li>
+    <li><a data-link="linkedin">LinkedIn</a></li>
+    <li><a data-link="youtube">YouTube</a></li>
+  </ul>
+</header>
+
+<main>
+
+  <p class="intro">
+    Programming professionally since 2017, on systems that have to keep up:
+    multiplayer games, a 120 Hz sensor product for elderly care, and my own
+    voxel engine.
+  </p>
+
+  <figure class="reel">
+    <div class="frame" data-showreel>
+      <noscript><a href="https://www.youtube.com/watch?v=OETD6IMr9Vc">Watch “Tower of Gom” on YouTube</a></noscript>
+    </div>
+    <figcaption>
+      <cite>Tower of Gom.</cite> Low over voxel water, between the buildings
+      of a city built into the world, then up a 1 km tower to see the whole
+      city, 6 km across. Recorded on an RTX 2080.
+    </figcaption>
+  </figure>
+
+  <section id="engine">
+    <h2>Performance</h2>
+    <p class="sub">Own project · voxel engine · sole developer · 2021 – now</p>
+    <p>
+      An endless block world you can fly through, build whole cities in, and
+      tear apart. Its terrain is generated from plate tectonics, rock types
+      and rivers, and it is seamlessly integrated with Unity physics.
+    </p>
+    <figure class="shot">
+      <img src="img/building.jpg" alt="Build mode: one-metre blocks placed on a hill, with the block bar below and a city spreading out behind" width="1400" height="787" loading="lazy">
+      <figcaption>1 m blocks up close, a city 6 km across in the distance.</figcaption>
+    </figure>
+    <dl class="facts">
+      <dt>View distance</dt> <dd>20 km, with octree level of detail</dd>
+      <dt>Flight</dt>        <dd>140 km/h through a fully editable world</dd>
+      <dt>Frame rate</dt>    <dd>Above 60 FPS on a mid-range GPU (RTX 2080)</dd>
+      <dt>Edits</dt>         <dd>Building and large-scale destruction appear whole, in one frame</dd>
+      <dt>Size</dt>          <dd>About 30,000 lines of C#</dd>
+      <dt>Stack</dt>         <dd>Unity 6, C#, Burst, HDRP</dd>
+    </dl>
+    <p class="more">Videos: <a data-link="youtube">youtube.com/@gomFPV</a></p>
+  </section>
+
+  <section id="sensor">
+    <h2>Real-world application</h2>
+    <p class="sub">Cenvigo · elderly-care monitoring · tech lead · 2020 – 2024, remote</p>
+    <figure class="shot side">
+      <img src="img/sensor-signal.jpg" alt="The sensor band and its Bluetooth unit on a bed, with a minute of raw signal below" width="700" height="394" loading="lazy">
+      <figcaption>120 Hz piezoelectric BLE sensor.</figcaption>
+    </figure>
+    <p>
+      Camera-free monitoring for care homes. A thin sensor band under the
+      mattress picks up heartbeat, breathing and movement, and night staff
+      are alerted when a resident has been out of bed too long.
+    </p>
+    <dl class="facts">
+      <dt>Signal</dt>    <dd>120 Hz per bed, sensitive enough to register heartbeat and breathing</dd>
+      <dt>Detection</dt> <dd>Bed presence and movement from a noisy signal</dd>
+      <dt>Chain</dt>     <dd>Bluetooth sensor bands, Android app, .NET back end, Blazor and React front ends</dd>
+      <dt>Live view</dt> <dd>Real-time graphs of bed presence and movement, drawn in SVG</dd>
+    </dl>
+    <p class="more">Product site: <a data-link="cenvigo">cenvigo.com</a></p>
+  </section>
+
+  <section id="kogama">
+    <h2>Multiplayer</h2>
+    <p class="sub">Multiverse · KoGaMa (game-creation platform) · programmer · 2016 – 2019, Copenhagen</p>
+    <figure class="shot side">
+      <img src="img/kogama.jpg" alt="KoGaMa promotional art: the logo surrounded by blocky player characters" width="600" height="315" loading="lazy">
+      <figcaption>Image: KoGaMa / Multiverse ApS.</figcaption>
+    </figure>
+    <p>
+      A platform where anyone could create, share and play multiplayer games,
+      in the browser, on PC and on mobile, in the same space as Roblox. Its
+      players still miss it: since it shut down, fans have started a revival
+      project.
+    </p>
+    <dl class="facts">
+      <dt>Players</dt>   <dd>18 million registered</dd>
+      <dt>Games</dt>     <dd>More than 3 million created by players</dd>
+      <dt>Platforms</dt> <dd>PC, WebGL and Android</dd>
+    </dl>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="timeline">
+      <li><span class="when">2024 – now</span> <strong>Independent development</strong> · voxel engine, <a data-link="itch">Life of a Peasant</a>, game projects with others</li>
+      <li><span class="when">2020 – 2024</span> <strong>Cenvigo</strong> · senior full-stack developer, tech lead · remote</li>
+      <li><span class="when">2016 – 2019</span> <strong>Multiverse</strong> · programmer on KoGaMa · Copenhagen</li>
+      <li><span class="when">2014 – 2017</span> <strong>The Game Assembly</strong> · Game Programming</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>Based in Sweden. Swedish and English.</p>
+</footer>
+
+<script>
+  (function () {
+    document.querySelectorAll("[data-link]").forEach(function (a) {
+      var url = SITE.links[a.dataset.link];
+      if (url) { a.href = url; a.rel = "noopener"; }
+    });
+    var address = SITE.email.user + "@" + SITE.email.domain;
+    document.querySelectorAll("[data-email]").forEach(function (a) {
+      a.href = "mailto:" + address;
+      a.textContent = address;
+    });
+    document.querySelectorAll("[data-showreel]").forEach(function (box) {
+      var f = document.createElement("iframe");
+      f.src = "https://www.youtube-nocookie.com/embed/" + SITE.showreel.id;
+      f.title = SITE.showreel.title;
+      f.loading = "lazy";
+      f.allow = "accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+      f.allowFullscreen = true;
+      f.referrerPolicy = "strict-origin-when-cross-origin";
+      box.appendChild(f);
+    });
+  })();
+</script>
+</body>
+</html>

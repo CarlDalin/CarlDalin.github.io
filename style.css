@@ -1,0 +1,268 @@
+.shot { margin: 1rem 0; }
+.shot img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.shot.small { max-width: 300px; }
+/* Page switch button, top right of the header (CV on the portfolio, Portfolio on the CV). */
+.top { position: relative; }
+.page-button {
+  position: absolute; top: 0; right: 0;
+  padding: 0.45rem 1.1rem;
+  border: 1.5px solid currentColor; border-radius: 6px;
+  font-weight: 600; text-decoration: none;
+}
+.page-button:hover { background: var(--line); }
+.top h1 { padding-right: 8.5rem; }
+.contact a { overflow-wrap: anywhere; } /* keep the name clear of the button on narrow screens */
+@media print { .page-button { display: none; } }
+.timeline { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+.timeline li { margin: 0.35rem 0; }
+.timeline .when { display: inline-block; min-width: 7.5rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* Small image to the right of the text on wider screens; full width on phones. */
+.shot.side { float: right; width: 42%; max-width: 300px; margin: 0.25rem 0 0.75rem 1.25rem; }
+section .facts { clear: both; }
+@media (max-width: 30rem) {
+  .shot.side { float: none; width: 100%; max-width: none; margin: 1rem 0; }
+}
+.shot.stack img + img { margin-top: 0.4rem; background: #fff; }
+.shot figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+
+:root {
+  --bg: #f7f6f3;
+  --text: #1c1c1a;
+  --muted: #6a6862;
+  --line: #dddad3;
+  --accent: #2f5d8a;
+  --frame: #e9e7e1;
+  --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141517;
+    --text: #e4e2dd;
+    --muted: #9a978f;
+    --line: #2c2e31;
+    --accent: #8fb6dc;
+    --frame: #1e2023;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0 auto;
+  max-width: 44rem;
+  padding: 3rem 1.25rem 4rem;
+  background: var(--bg);
+  color: var(--text);
+  font: 1.0625rem/1.6 var(--sans);
+}
+
+a { color: var(--accent); text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Header */
+
+.top h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.role {
+  margin: 0.25rem 0 1rem;
+  color: var(--muted);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+.contact noscript { color: var(--muted); }
+
+/* Intro and showreel */
+
+.intro { margin: 2.5rem 0 2rem; }
+
+.reel { margin: 0 0 1rem; }
+
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--frame);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.frame noscript a {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+figcaption cite { font-style: normal; color: var(--text); }
+
+/* Sections */
+
+section {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0;
+  font: 600 1.5rem/1.2 var(--mono);
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  margin: 0.2rem 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; }
+
+.more { font-size: 0.95rem; color: var(--muted); }
+
+/* Other work */
+
+.work {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work li + li { margin-top: 1.5rem; }
+
+h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+h3 span {
+  margin-left: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.work p { margin: 0; }
+
+/* Footer */
+
+footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* CV page (cv.html) */
+
+.back { margin: 0 0 1.5rem; font-size: 0.9rem; }
+
+.cv .intro { margin: 1.75rem 0 0; }
+
+.cv section { margin-top: 2rem; padding-top: 1rem; }
+
+.cv h2 { font-size: 1.15rem; margin-bottom: 0.75rem; }
+
+.job + .job { margin-top: 1.25rem; }
+.sub-job { margin: 0.6rem 0 0 0.9rem; }
+.sub-job h4 { font-size: 0.95rem; margin: 0 0 0.2rem; }
+.sub-job h4 span { color: var(--muted); font-weight: normal; margin-left: 0.4rem; }
+
+.job .what { margin: 0 0 0.3rem; }
+
+.job ul { margin: 0; padding-left: 1.1rem; }
+
+.job li + li { margin-top: 0.2rem; }
+
+.cv .facts { margin: 0; gap: 0.2rem 1.25rem; }
+
+.cv section > p { margin: 0; }
+
+/* Phones */
+
+@media (max-width: 30rem) {
+  body { padding-top: 2rem; font-size: 1rem; }
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dd { margin-bottom: 0.6rem; }
+  h3 span { display: block; margin: 0.1rem 0 0; }
+}
+
+/* Print: A4, black on white, whatever the screen theme. */
+
+@page { size: A4; margin: 11mm 14mm; }
+
+@media print {
+  :root {
+    --bg: #fff;
+    --text: #000;
+    --muted: #444;
+    --line: #bbb;
+    --accent: #000;
+  }
+  body {
+    max-width: none;
+    padding: 0;
+    font-size: 9pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a { text-decoration: none; }
+  .back, .frame, noscript { display: none; }
+  .top h1 { font-size: 18pt; }
+  .role { margin: 0.1rem 0 0.4rem; }
+  .contact { font-size: 9pt; }
+  .cv .intro { margin-top: 0.6rem; }
+  .cv section { margin-top: 0.7rem; padding-top: 0.4rem; }
+  .cv h2 { font-size: 10.5pt; margin-bottom: 0.3rem; }
+  h3 { font-size: 9.5pt; margin-bottom: 0.1rem; }
+  h3 span { font-size: 8.5pt; }
+  .job + .job { margin-top: 0.5rem; }
+  .job li + li { margin-top: 0.05rem; }
+  .cv .facts { font-size: inherit; gap: 0 1rem; }
+  .job li, .job .what { break-inside: avoid; }
+  .sub-job { margin-top: 0.25rem; }
+  .sub-job h4 { font-size: 9pt; margin-bottom: 0; }
+  h2, h3 { break-after: avoid; }
+}
