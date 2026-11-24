@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -6,7 +6,7 @@
 <title>Carl Dalin · Real-time systems engineer</title>
 <meta name="description" content="Carl Dalin, real-time systems engineer. A voxel engine of his own, real-time sensor systems and full-stack .NET.">
 <meta name="color-scheme" content="light dark">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=4">
 <script>
   // Settings: every link, address and video on the page comes from here.
   const SITE = {
@@ -44,17 +44,6 @@
     voxel engine.
   </p>
 
-  <figure class="reel">
-    <div class="frame" data-showreel>
-      <noscript><a href="https://www.youtube.com/watch?v=OETD6IMr9Vc">Watch “Tower of Gom” on YouTube</a></noscript>
-    </div>
-    <figcaption>
-      <cite>Tower of Gom.</cite> Low over voxel water, between the buildings
-      of a city built into the world, then up a 1 km tower to see the whole
-      city, 6 km across. Recorded on an RTX 2080.
-    </figcaption>
-  </figure>
-
   <section id="engine">
     <h2>Performance</h2>
     <p class="sub">Own project · voxel engine · sole developer · 2021 – now</p>
@@ -63,13 +52,23 @@
       tear apart. Its terrain is generated from plate tectonics, rock types
       and rivers, and it is seamlessly integrated with Unity physics.
     </p>
-    <figure class="shot">
-      <img src="img/building.jpg" alt="Build mode: one-metre blocks placed on a hill, with the block bar below and a city spreading out behind" width="1400" height="787" loading="lazy">
-      <figcaption>1 m blocks up close, a city 6 km across in the distance.</figcaption>
+    <figure class="shot media" data-showreel>
+      <div class="media-box">
+        <img src="img/building.jpg" alt="Build mode: one-metre blocks placed on a hill, with the block bar below and a city spreading out behind" width="1400" height="787" loading="lazy">
+      </div>
+      <figcaption class="with-action">
+        <span>1 m blocks up close, a city 6 km across in the distance.</span>
+        <button type="button" class="play">&#9654; See it in real time · 1:45</button>
+      </figcaption>
+      <dialog class="lightbox">
+        <form method="dialog"><button class="close" aria-label="Close video">&times;</button></form>
+        <div class="lightbox-frame"></div>
+      </dialog>
+      <noscript><p><a href="https://www.youtube.com/watch?v=OETD6IMr9Vc">Watch “Tower of Gom” on YouTube</a></p></noscript>
     </figure>
     <dl class="facts">
       <dt>View distance</dt> <dd>20 km, with octree level of detail</dd>
-      <dt>Flight</dt>        <dd>140 km/h through a fully editable world</dd>
+      <dt>Streaming</dt>     <dd>Fast enough for a 140 km/h race drone</dd>
       <dt>Frame rate</dt>    <dd>Above 60 FPS on a mid-range GPU (RTX 2080)</dd>
       <dt>Edits</dt>         <dd>Building and large-scale destruction appear whole, in one frame</dd>
       <dt>Size</dt>          <dd>About 30,000 lines of C#</dd>
@@ -146,15 +145,24 @@
       a.href = "mailto:" + address;
       a.textContent = address;
     });
-    document.querySelectorAll("[data-showreel]").forEach(function (box) {
-      var f = document.createElement("iframe");
-      f.src = "https://www.youtube-nocookie.com/embed/" + SITE.showreel.id;
-      f.title = SITE.showreel.title;
-      f.loading = "lazy";
-      f.allow = "accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen";
-      f.allowFullscreen = true;
-      f.referrerPolicy = "strict-origin-when-cross-origin";
-      box.appendChild(f);
+    // The image has a play button that opens the video large, over the page.
+    // YouTube loads only on play, and is removed again on close (stops playback).
+    document.querySelectorAll("[data-showreel]").forEach(function (fig) {
+      var dialog = fig.querySelector(".lightbox");
+      var frame = fig.querySelector(".lightbox-frame");
+      fig.querySelector(".play").addEventListener("click", function () {
+        var f = document.createElement("iframe");
+        f.src = "https://www.youtube-nocookie.com/embed/" + SITE.showreel.id + "?autoplay=1";
+        f.title = SITE.showreel.title;
+        f.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+        f.allowFullscreen = true;
+        f.referrerPolicy = "strict-origin-when-cross-origin";
+        f.style.cssText = "display:block;width:100%;height:100%;border:0";
+        frame.replaceChildren(f);
+        dialog.showModal();
+      });
+      dialog.addEventListener("close", function () { frame.replaceChildren(); });
+      dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
     });
   })();
 </script>

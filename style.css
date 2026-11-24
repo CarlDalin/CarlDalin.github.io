@@ -1,6 +1,28 @@
 .shot { margin: 1rem 0; }
 .shot img { display: block; width: 100%; height: auto; border-radius: 4px; }
 .shot.small { max-width: 300px; }
+/* Image that turns into the video in the same frame. */
+.media-box { position: relative; aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; background: #000; }
+.media-box img, .media-box iframe { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; }
+/* Caption with a small video button on the right. */
+.with-action { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.play {
+  padding: 0.45rem 0.95rem; border: 0; border-radius: 6px;
+  background: var(--text); color: var(--bg); font: inherit; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; white-space: nowrap;
+}
+.play:hover { opacity: 0.85; }
+@media print { .play { display: none; } }
+/* Large video over the page. */
+.lightbox { width: min(94vw, 1400px); max-width: none; padding: 0; border: 0; background: #000; overflow: visible; }
+.lightbox::backdrop { background: rgba(0, 0, 0, 0.85); }
+.lightbox-frame { width: 100%; aspect-ratio: 16 / 9; }
+.lightbox-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+.lightbox .close {
+  position: absolute; top: -2.6rem; right: 0;
+  background: none; border: 0; color: #fff; font-size: 2rem; cursor: pointer;
+}
+@media print { .media-box .play { display: none; } }
 /* Page switch button, top right of the header (CV on the portfolio, Portfolio on the CV). */
 .top { position: relative; }
 .page-button {
