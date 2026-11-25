@@ -27,7 +27,7 @@
 <header class="top">
   <a class="page-button" href="index.html">Portfolio</a>
   <h1>Carl Dalin</h1>
-  <p class="role">Real-time systems engineer · C#/.NET · Sweden, remote</p>
+  <p class="role">Real-time software engineer · C#/.NET · Sweden, remote</p>
   <ul class="contact">
     <li><a data-email>Email</a><noscript>contact [at] carldalin [dot] se</noscript></li>
     <li><a data-link="github" data-show-url>GitHub</a></li>
@@ -62,9 +62,11 @@
           <li>Designed and hand-wrote the core in 2021–22: chunk streaming,
             meshing, and voxel collision seamlessly integrated with Unity physics.</li>
           <li>Rebuilt it for scale in 2026 with Burst jobs, octree level of detail
-            and HDRP, directing AI-written implementation and reviewing all of it.</li>
-          <li>Profiled frame pacing, job scheduling and memory; found and fixed
-            a frame-rate cliff in the octree streaming.</li>
+            and HDRP, using AI for much of the implementation while owning the
+            architecture, the decisions and the performance work.</li>
+          <li>Built to frame-time budgets: a custom job scheduler with priority
+            lanes, per-frame upload budgets, pooled allocation-free buffers, and
+            profiling-driven tuning.</li>
           <li>Designed a world generator built on plate tectonics, rock types and
             rivers.</li>
         </ul>
@@ -75,7 +77,8 @@
         <p class="what">A narrative card game in Unity/C#, in public beta since
           January 2026: <a data-link="itch">plays in the browser</a>.</p>
         <ul>
-          <li>Wrote about 80% of the commits; built the core part-time alongside
+          <li>Owned the architecture, content pipeline and UI, working directly
+            with the designer; built the core part-time alongside
             Cenvigo.</li>
           <li>Replaced Unity's depth-limited serialisation with a JSON event
             format that content tools, AI included, could write.</li>
@@ -89,8 +92,8 @@
         <h4>Grid-based auto-battler · programmer <span>2024 – 2025</span></h4>
         <p class="what">Another designer's strategy game in Unity/C#, unreleased.</p>
         <ul>
-          <li>Wrote about 93% of the commits, turning the designer's ideas into a
-            working game.</li>
+          <li>Built the game's systems to the designer's plan, from combat
+            simulation to tooling.</li>
           <li>Kept grid pathfinding in step with the physics for a few hundred
             units a side.</li>
           <li>Built the campaign map, save/load and editor tooling.</li>
